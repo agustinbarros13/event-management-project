@@ -1,12 +1,16 @@
-import { fetchApi } from '../utils/fetchApi.js';
-import Loading from '../components/Loading.js';
+import Loading from '@/components/Loading.jsx';
 
 export default async function Home() {
-    document.querySelector('main').innerHTML = Loading();
-    
+    const mainElement = document.querySelector('main');
+    mainElement.innerHTML = Loading(); 
+
     try {
-        const events = await fetchApi('/events');
-        document.querySelector('main').innerHTML = `
+        const events = [
+            { _id: '1', title: 'Event 1', date: '2023-10-10', location: 'Location 1' },
+            { _id: '2', title: 'Event 2', date: '2023-11-15', location: 'Location 2' }
+        ];
+        
+        mainElement.innerHTML = `
             <h1>Available Events</h1>
             <div class="events-list">
                 ${events.map(event => `
@@ -20,11 +24,10 @@ export default async function Home() {
             </div>
         `;
     } catch (error) {
-        document.querySelector('main').innerHTML = '<p>Error loading events</p>';
+        mainElement.innerHTML = '<p>Error loading events</p>';
     }
 }
 
 window.exploreEvent = (eventId) => {
-    //fun expl
     alert(`Event ID: ${eventId}`);
 };

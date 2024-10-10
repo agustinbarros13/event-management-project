@@ -1,10 +1,11 @@
-import Home from './pages/Home.js';
-import Favorites from './pages/Favorites.js';
-import LoginRegister from './pages/LoginRegister.js';
-import Header from './components/Header.js';
+import Home from './pages/Home.jsx';
+import Favorites from './pages/Favorites.jsx';
+import LoginRegister from './pages/LoginRegister.jsx';
+import Header from './components/Header.jsx';
+
 
 export default function App() {
-    document.body.innerHTML = `
+    document.getElementById('app').innerHTML = `
         ${Header()}
         <main></main>
     `;
@@ -30,17 +31,17 @@ export default function App() {
 
     window.onpopstate = handleRoute;
 
-    document.getElementById('homeLink').addEventListener('click', (e) => {
+    document.getElementById('homeLink')?.addEventListener('click', (e) => {
         e.preventDefault();
         navigate('/');
     });
 
-    document.getElementById('favoritesLink').addEventListener('click', (e) => {
+    document.getElementById('favoritesLink')?.addEventListener('click', (e) => {
         e.preventDefault();
         navigate('/favorites');
     });
 
-    document.getElementById('loginLink').addEventListener('click', (e) => {
+    document.getElementById('loginLink')?.addEventListener('click', (e) => {
         e.preventDefault();
         navigate('/login');
     });

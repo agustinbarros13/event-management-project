@@ -1,4 +1,4 @@
-import { fetchApi } from '../utils/fetchApi.js';
+import { fetchApi } from '@/utils/fetchApi.js';
 
 export default function LoginRegister() {
     document.querySelector('main').innerHTML = `

@@ -5,7 +5,15 @@ export default defineConfig({
     plugins: [react()],
     server: {
         proxy: {
-            '/api': 'http://localhost:5009'
-        }
-    }
+            '/api': 'http://localhost:5009',
+        },
+    },
+    resolve: {
+        alias: {
+            '@': '/src',
+        },
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom'],
+    },
 });
