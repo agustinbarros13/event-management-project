@@ -21,7 +21,7 @@ export default function LoginRegister() {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetchApi('/auth/login', 'POST', { email, password });
+            const response = await fetchApi('/api/auth/login', 'POST', { email, password });
             if (response.token) {
                 localStorage.setItem('token', response.token);
                 window.location.href = '/';
@@ -36,7 +36,7 @@ export default function LoginRegister() {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetchApi('/auth/register', 'POST', { email, password });
+            const response = await fetchApi('/api/auth/register', 'POST', { email, password });
             if (response.token) {
                 localStorage.setItem('token', response.token);
                 window.location.href = '/';
